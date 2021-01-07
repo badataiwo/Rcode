@@ -53,7 +53,7 @@ predict_val_ <- predict(model112,test_set,type='response') # this predict the an
 predictedlog = data.frame(predict_val_,answers_) # this creates a dataframe from our two answers
 funnnnnn <- data.frame(rep(0,100),rep(0,100))
 
-predictedlog$predict_val_ = ifelse(predictedlog$predict_val_  >=.15,1,0) # this says create a new varable on the predictlog dataframe,
+predictedlog$predict_val_ = ifelse(predictedlog$predict_val_  >=.15,1,0) # this says create a new variable on the predictlog dataframe,
 # if the predict probs is equal to or greater than 3% mark it as a yes( there is going to be a wild fire) 
 # we can play around with this number to improve our accuracy 
 
@@ -67,7 +67,7 @@ confusionmatrix <- confusionMatrixFor_Neg1_0_1(no_na$all_conditions.all_conditio
 
 confusionmatrix[2:3,2:3] # in a confusion matrix it compares the number of predictions it got right when the model predicted no wildfire and there was no wildfire
 # Prediction of no wildfire and no wildfire was observed is in the top left corner. Also the bottom right corner, 1,1( predicted wildfire and there was wildfire) is 
-# also a correct answer. If you want more inform on this there are 1000's of youtube vidoes on the topic 
+# also a correct answer. If you want more inform on this there are 1000's of youtube videos on the topic 
 
 acc <- (confusionmatrix[2,2]+confusionmatrix[3,3])/nrow(no_na) # this gives us the accuracy of the model, right answers over all observation 
 acc # at the 3% level we have a 58% accuracy
@@ -77,4 +77,4 @@ false_negative_rate <- confusionmatrix[3,2]/(confusionmatrix[3,2]+confusionmatri
 View(all_conditions
      )
 
-  #confusionmatrix <- table(no_na$predict_val_,no_na$all_conditions.all_conditions.train_test.....test...19.) # this creates a confustion matrix 
+  #confusionmatrix <- table(no_na$predict_val_,no_na$all_conditions.all_conditions.train_test.....test...19.) # this creates a confusion matrix 
